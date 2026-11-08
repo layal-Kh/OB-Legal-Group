@@ -668,9 +668,84 @@ html[dir="ltr"] .text-link:hover span {
 .botcheck {
   display: none !important;
 }
-.h-captcha {
+/* ===== hCaptcha ===== */
+
+#captchaContainer {
   margin: 16px 0;
-  min-height: 78px;
+  width: 100%;
+}
+
+/* Keep the original hCaptcha widget appearance */
+#captchaWidget {
+  width: 100%;
+}
+
+/* Loading and error messages */
+.captcha-message {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.captcha-message small {
+  display: block;
+  flex-basis: 100%;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+/* Loading spinner */
+.captcha-spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--line);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: captchaSpin 0.8s linear infinite;
+  flex: 0 0 15px;
+}
+
+@keyframes captchaSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error message */
+#captchaError strong {
+  color: #b42318;
+  font-weight: 700;
+}
+
+.captcha-retry {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--navy2);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.captcha-retry:hover {
+  color: var(--gold);
+}
+
+.captcha-retry:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Respect the HTML hidden attribute */
+#captchaContainer [hidden] {
+  display: none !important;
 }
 /* ===== Legal pages ===== */
 .legal-copy {

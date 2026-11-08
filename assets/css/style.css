@@ -668,6 +668,7 @@ html[dir="ltr"] .text-link:hover span {
 .botcheck {
   display: none !important;
 }
+
 /* ===== hCaptcha ===== */
 
 #captchaContainer {
@@ -675,37 +676,44 @@ html[dir="ltr"] .text-link:hover span {
   width: 100%;
 }
 
-/* Keep the original hCaptcha widget appearance */
-#captchaWidget {
-  width: 100%;
-}
-
-/* Loading and error messages */
-.captcha-message {
+/* Loading and error boxes */
+#captchaLoading,
+#captchaError {
+  box-sizing: border-box;
+  width: 303px;
+  max-width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
+  font-weight: 600;
   line-height: 1.6;
 }
 
+/* Supporting text */
 .captcha-message small {
   display: block;
   flex-basis: 100%;
   color: var(--muted);
   font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 /* Loading spinner */
 .captcha-spinner {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
   border: 2px solid var(--line);
-  border-top-color: var(--navy);
+  border-top-color: var(--gold);
   border-radius: 50%;
   animation: captchaSpin 0.8s linear infinite;
-  flex: 0 0 15px;
 }
 
 @keyframes captchaSpin {
@@ -716,37 +724,44 @@ html[dir="ltr"] .text-link:hover span {
 
 /* Error message */
 #captchaError strong {
-  color: #b42318;
-  font-weight: 700;
+  color: #B42318;
+  font-weight: inherit;
 }
 
+/* Retry button */
 .captcha-retry {
-  padding: 0;
+  margin-top: 3px;
+  padding: 7px 13px;
   border: 0;
-  background: none;
-  color: var(--navy2);
+  border-radius: 5px;
+  background: var(--navy2);
+  color: #fff;
   font: inherit;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .captcha-retry:hover {
-  color: var(--gold);
+  background: var(--navy);
 }
 
 .captcha-retry:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
-  border-radius: 3px;
+}
+
+/* Keep the original hCaptcha appearance */
+#captchaWidget {
+  width: 100%;
 }
 
 /* Respect the HTML hidden attribute */
 #captchaContainer [hidden] {
   display: none !important;
 }
+
 /* ===== Legal pages ===== */
 .legal-copy {
   max-width: 850px;

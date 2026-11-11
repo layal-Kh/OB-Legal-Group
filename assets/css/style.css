@@ -171,11 +171,6 @@ nav a.active:after {
   fill: currentColor;
   stroke: none;
 }
-.footer-social .social-links a:hover .social-icon {
-  background: var(--gold);
-  color: var(--navy);
-  transform: translateY(-2px);
-}
 .languages {
   display: flex;
   border: 1px solid #ffffff40;
@@ -787,27 +782,6 @@ footer {
   gap: 30px;
   padding-bottom: 35px;
 }
-.footer-social .social-links {
-  display: grid;
-  gap: 10px;
-}
-.footer-social .social-links a {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  color: #d9e1ea;
-  font-size: 0.92rem;
-  transition:
-    color 0.2s,
-    transform 0.2s;
-}
-.footer-social .social-links a:hover {
-  color: var(--gold-light);
-  transform: translateX(-3px);
-}
-html[dir="ltr"] .footer-social .social-links a:hover {
-  transform: translateX(3px);
-}
 .social-icon {
   width: 36px;
   height: 36px;
@@ -1045,16 +1019,6 @@ html[lang="tr"] .footer-logo {
   }
 }
 @media (max-width: 520px) {
-  .footer-social .social-links {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-  }
-  .footer-social .social-links a {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    font-size: 0.78rem;
-  }
   .container {
     width: min(100% - 30px, 1160px);
   }
@@ -1140,3 +1104,23 @@ html[lang="tr"] .footer-logo {
     transform: none;
   }
 }
+
+/* ===== Scope of work (reuses .cards / .card) ===== */
+.cards.cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card .scope-countries { color: var(--navy); font-weight: 700; font-size: 1.05rem; margin-bottom: 0; }
+.section-divider { border: 0; border-top: 1px solid var(--line); margin: 0; }
+@media (max-width: 780px) { .cards.cards-2 { grid-template-columns: 1fr; } }
+
+/* ===== WhatsApp numbers (flags) ===== */
+.flag { width: 24px; height: 16px; flex: none; border-radius: 2px; box-shadow: 0 0 0 1px #ffffff40; object-fit: cover; }
+.wa-list { list-style: none; margin: 10px 0 18px; padding: 0; display: grid; gap: 10px; }
+.wa-list a, .footer-links a.wa { display: flex; align-items: center; gap: 12px; }
+.wa-country { min-width: 5.5em; }
+.footer-email .mail-icon { width: 24px; height: 18px; flex: none; fill: none; stroke: var(--gold); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ===== Footer: brand column (social icons) + contact column ===== */
+.footer-brand .social-links { display: flex; gap: 10px; margin-top: 18px; }
+.footer-brand .social-links a { display: block; }
+.footer-brand .social-links a:hover .social-icon { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+.footer-links a.footer-email { display: flex; align-items: center; gap: 12px; }
+.footer-contact + h3 { margin-top: 22px; }
